@@ -1,0 +1,691 @@
+Sunday, December 19, 2021 5:51:45 PM PKT
+NEW FILE.
+DATASET NAME DataSet1 WINDOW=FRONT.
+FREQUENCIES VARIABLES=VAR00001
+  /STATISTICS=RANGE MINIMUM MAXIMUM MODE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=VAR00001
+  /STATISTICS=RANGE MINIMUM MAXIMUM STDDEV MEAN MEDIAN
+  /FORMAT=NOTABLE
+  /ORDER=ANALYSIS.
+Monday, December 20, 2021 5:42:31 PM PKT
+GET
+  FILE='C:\PROGRA~1\IBM\SPSS\STATIS~1\25\Samples\English\anticonvulsants.sav'.
+DATASET NAME DataSet1 WINDOW=FRONT.
+Wednesday, December 29, 2021 12:45:52 PM PKT
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4occupation v5income v6Ftype v7yrs v8a v8b v8c v8d
+    v8e v8f v8g v12 VAR00022 VAR00023 VAR00024 VAR00029 VAR00025 VAR00026 VAR00027 VAR00028
+  /ORDER=ANALYSIS.
+*>Text: v4occupation Command: FREQUENCIES
+*>An undefined variable name, or a scratch or system variable was specified in a
+*>variable list which accepts only standard variables.  Check spelling and
+*>verify the existence of this variable.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4occupation v5income v6Ftype v7yrs v8a v8b v8c v8d
+    v8e v8f v8g v12 VAR00022 VAR00023 VAR00024 VAR00029 VAR00025 VAR00026 VAR00027 VAR00028
+  /ORDER=ANALYSIS.
+*>Text: v4occupation Command: FREQUENCIES
+*>An undefined variable name, or a scratch or system variable was specified in a
+*>variable list which accepts only standard variables.  Check spelling and
+*>verify the existence of this variable.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v5income v6Ftype v7yrs v8a v8b v8c v8d v8e v8f v8g
+    v12 VAR00022 VAR00023 VAR00024 VAR00029 VAR00025 VAR00026 VAR00027 VAR00028
+  /FORMAT=NOTABLE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v5income v6Ftype v7yrs v8a v8b v8c v8d v8e v8f v8g
+    v12 VAR00022 VAR00023 VAR00024 VAR00029 VAR00025 VAR00026 VAR00027 VAR00028
+  /FORMAT=NOTABLE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v5income v6Ftype v7yrs v8a v8b v8c v8d v8e v8f v8g
+    v12 VAR00022 VAR00023 VAR00024 VAR00029 VAR00025 VAR00026 VAR00027 VAR00028
+  /FORMAT=NOTABLE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v5income v6Ftype v7yrs v8a v8b v8c v8d v8e v8f v8g
+    v12 VAR00022 VAR00023 VAR00024 VAR00029 VAR00025 VAR00026 VAR00027 VAR00028
+  /FORMAT=NOTABLE
+  /ORDER=ANALYSIS.
+DESCRIPTIVES VARIABLES=v1Gen v2Age v3familysize v5income v6Ftype v7yrs v8a v8b v8c v8d v8e v8f v8g
+    v12 VAR00022 VAR00023 VAR00024 VAR00029 VAR00025 VAR00026 VAR00027 VAR00028
+  /STATISTICS=MEAN STDDEV MIN MAX.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v5income v6Ftype v7yrs v8a v8b v8c v8d v8e v8f v8g
+    v12 VAR00022 VAR00023 VAR00024 VAR00029 VAR00025 VAR00026 VAR00027 VAR00028
+  /FORMAT=NOTABLE
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v5income v6Ftype v7yrs v8a v8b v8c v8d v8e v8f v8g
+    v12 VAR00022 VAR00023 VAR00024 VAR00029 VAR00025 VAR00026 VAR00027 VAR00028
+  /FORMAT=NOTABLE
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+RELIABILITY
+  /VARIABLES=v8a v8b v8c v8d v8e v8f v8g v12
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v8a v8b v8c v8d v8e v8f v8g v12
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v8a v8b v8c v8d v8e v8f v8g v12
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=DESCRIPTIVE SCALE CORR
+  /SUMMARY=TOTAL MEANS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v5income v7yrs v8a v8b v8c v8d v8e v8f v8g v12
+    v6Ftype
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v5income v7yrs v8a v8b v8c v8d v8e v8f v8g v12
+    v6Ftype
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v2Age
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+
+SAVE OUTFILE='C:\Users\Admin\Documents\Untitled1.sav'
+  /COMPRESSED.
+Wednesday, December 29, 2021 2:51:29 PM PKT
+GET
+  FILE='C:\Users\Admin\Documents\Untitled1.sav'.
+DATASET NAME DataSet1 WINDOW=FRONT.
+COMPUTE reasons=MEAN(v8a + v8b + v8c + v8d + v8e + v8g + v8f) .
+EXECUTE.
+COMPUTE reasons=MEAN(v8a + v8b + v8c + v8d + v8e + v8g + v8f) .
+EXECUTE.
+T-TEST GROUPS=v1Gen(1 2)
+  /MISSING=ANALYSIS
+  /VARIABLES=reasons
+  /CRITERIA=CI(.95).
+ONEWAY reasons BY v2Age
+  /MISSING ANALYSIS.
+CORRELATIONS
+  /VARIABLES=v12 reasons
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CROSSTABS
+  /TABLES=v1Gen BY v12
+  /FORMAT=AVALUE TABLES
+  /STATISTICS=CHISQ
+  /CELLS=COUNT
+  /COUNT ROUND CELL.
+Thursday, December 30, 2021 9:11:25 PM PKT
+GET
+  FILE='C:\Users\Admin\Documents\Untitled1.sav'.
+DATASET NAME DataSet1 WINDOW=FRONT.
+DATASET ACTIVATE DataSet1.
+
+SAVE OUTFILE='C:\Users\Admin\Documents\Untitled1.sav'
+  /COMPRESSED.
+Saturday, January 1, 2022 8:11:31 PM PKT
+GET
+  FILE='C:\Users\Admin\Documents\Untitled1.sav'.
+DATASET NAME DataSet1 WINDOW=FRONT.
+DATASET ACTIVATE DataSet1.
+
+SAVE OUTFILE='C:\Users\Admin\Documents\Untitled1.sav'
+  /COMPRESSED.
+DATASET ACTIVATE DataSet1.
+
+SAVE OUTFILE='C:\Users\Admin\Documents\Untitled1.sav'
+  /COMPRESSED.
+GET
+  FILE='C:\PROGRA~1\IBM\SPSS\STATIS~1\25\Samples\English\anticonvulsants.sav'.
+DATASET NAME DataSet2 WINDOW=FRONT.
+DATASET ACTIVATE DataSet1.
+DATASET CLOSE DataSet2.
+Sunday, January 2, 2022 1:16:32 PM PKT
+GET
+  FILE='C:\Users\Admin\Documents\Untitled1.sav'.
+DATASET NAME DataSet1 WINDOW=FRONT.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /ORDER=ANALYSIS.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /FORMAT=NOTABLE
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /FORMAT=NOTABLE
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v10 v11 v12 v12a v12b v13
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v14a v14b v14c v14d v14e v14f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v14a v14b v14c v14d v14e v14f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=CORR.
+CORRELATIONS
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v14a v14b v14c v14d
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+RELIABILITY
+  /VARIABLES=v14a v14b v14c v14d v14e v14f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=CORR.
+RELIABILITY
+  /VARIABLES=v14a v14b v14c v14d v14e v14f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=CORR.
+RELIABILITY
+  /VARIABLES=v14a v14b v14c v14d v14e v14f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=CORR.
+RELIABILITY
+  /VARIABLES=v14a v14b v14c v14d v14e v14f v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b
+    v9c v9d v9e v10 v11 v12 v12a v12b v13 v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=CORR.
+COMPUTE reasons=MEAN(v7a+v7b + v7c + v7d + v7e + v7f + v7g + v7h + v8a + v8b + v8c + v8d + v9a +
+    v9b + v9c + v9d + v9e ).
+EXECUTE.
+COMPUTE mentalhealth=MEAN(v14a + v14b + v14c + v14d ).
+EXECUTE.
+CORRELATIONS
+  /VARIABLES=reasons mentalhealth
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+Monday, January 3, 2022 2:05:47 PM PKT
+GET
+  FILE='C:\Users\Admin\Documents\Untitled1.sav'.
+DATASET NAME DataSet1 WINDOW=FRONT.
+COMPUTE confict=MEAN(v12 + v12a + v12b).
+EXECUTE.
+CORRELATIONS
+  /VARIABLES=confict mentalhealth
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+COMPUTE behavior=MEAN(v15a + v15b + v15c + v15d + v15e).
+EXECUTE.
+CORRELATIONS
+  /VARIABLES=confict behavior
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=confict behavior
+  /PRINT=ONETAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=behavior reasons
+  /PRINT=ONETAIL NOSIG
+  /MISSING=PAIRWISE.
+BAYES CORRELATION
+  /MISSING SCOPE=PAIRWISE
+  /CRITERIA CILEVEL=95 SEED=RANDOM POSTSAMPLES=1000000
+  /INFERENCE VARIABLES=confict behavior ANALYSIS=POSTERIOR MAXPLOTS=10 CVALUE=0.
+CORRELATIONS
+  /VARIABLES=behavior reasons
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+RELIABILITY
+  /VARIABLES=confict mentalhealth
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=CORR.
+RELIABILITY
+  /VARIABLES=confict mentalhealth
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=ANOVA FRIEDMAN.
+ONEWAY confict BY behavior
+  /MISSING ANALYSIS.
+CORRELATIONS
+  /VARIABLES=behavior reasons
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=behavior reasons
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=mentalhealth confict
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=mentalhealth confict
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=mentalhealth confict
+  /PRINT=TWOTAIL SIG
+  /MISSING=PAIRWISE.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f reasons
+    mentalhealth confict behavior
+  /FORMAT=NOTABLE
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f reasons
+    mentalhealth confict behavior
+  /STATISTICS=STDDEV MEAN MEDIAN
+  /ORDER=ANALYSIS.
+RELIABILITY
+  /VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g v7h v8a
+    v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b
+    v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=ANOVA FRIEDMAN.
+RELIABILITY
+  /VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g v7h v8a
+    v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b
+    v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=ANOVA FRIEDMAN.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /STATISTICS=STDDEV MEAN MEDIAN
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /STATISTICS=STDDEV MEAN MEDIAN
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+BAYES ANOVA mentalhealth BY confict
+  /CRITERIA CILEVEL=95
+  /INFERENCE ANALYSIS=POSTERIOR
+  /PRIOR TYPE=REFERENCE
+  /PLOT ERRORVAR=FALSE.
+ONEWAY mentalhealth BY behavior
+  /MISSING ANALYSIS.
+ONEWAY mentalhealth BY confict
+  /MISSING ANALYSIS.
+CROSSTABS
+  /TABLES=reasons BY mentalhealth
+  /FORMAT=AVALUE TABLES
+  /STATISTICS=CHISQ
+  /CELLS=COUNT
+  /COUNT ROUND CELL.
+CROSSTABS
+  /TABLES=reasons BY mentalhealth
+  /FORMAT=AVALUE TABLES
+  /STATISTICS=CORR
+  /CELLS=COUNT
+  /COUNT ROUND CELL.
+CROSSTABS
+  /TABLES=confict BY mentalhealth
+  /FORMAT=AVALUE TABLES
+  /STATISTICS=CORR
+  /CELLS=COUNT
+  /COUNT ROUND CELL.
+CROSSTABS
+  /TABLES=confict BY mentalhealth
+  /FORMAT=AVALUE TABLES
+  /STATISTICS=CHISQ
+  /CELLS=COUNT
+  /COUNT ROUND CELL.
+CROSSTABS
+  /TABLES=confict BY behavior
+  /FORMAT=AVALUE TABLES
+  /STATISTICS=CHISQ
+  /CELLS=COUNT
+  /COUNT ROUND CELL.
+CROSSTABS
+  /TABLES=confict BY behavior
+  /FORMAT=AVALUE TABLES
+  /STATISTICS=CHISQ PHI
+  /CELLS=EXPECTED
+  /COUNT ROUND CELL.
+Monday, January 3, 2022 6:56:05 PM PKT
+GET
+  FILE='C:\Users\Admin\Documents\Untitled1.sav'.
+DATASET NAME DataSet1 WINDOW=FRONT.
+COMPUTE relationship=MEAN(v16a + v16b + v16c + v16d + v16e + v16f + v16g).
+EXECUTE.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f reasons mentalhealth confict behavior relationship
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+CORRELATIONS
+  /VARIABLES=relationship confict
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+DATASET ACTIVATE DataSet1.
+
+SAVE OUTFILE='C:\Users\Admin\Documents\Untitled1.sav'
+  /COMPRESSED.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f reasons mentalhealth confict behavior relationship
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+CORRELATIONS
+  /VARIABLES=relationship confict
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=confict mentalhealth
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f reasons
+    mentalhealth confict behavior relationship
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f reasons
+    mentalhealth confict behavior relationship
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f reasons
+    mentalhealth confict behavior relationship
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f reasons
+    mentalhealth confict behavior relationship
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+RELIABILITY
+  /VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a
+    v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g
+    v17a v17b v17c v17d v17e v17f
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA.
+Monday, January 3, 2022 11:14:55 PM PKT
+GET
+  FILE='C:\Users\Admin\Documents\Untitled1.sav'.
+DATASET NAME DataSet1 WINDOW=FRONT.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f reasons
+    mentalhealth confict behavior relationship
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f reasons
+    mentalhealth confict behavior relationship
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f reasons
+    mentalhealth confict behavior relationship
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+Tuesday, January 4, 2022 1:50:35 PM PKT
+GET
+  FILE='C:\Users\Admin\Documents\Untitled1.sav'.
+DATASET NAME DataSet1 WINDOW=FRONT.
+FREQUENCIES VARIABLES=v1Gen v2Age v3familysize v4income v5Ftype v6yrs v7a v7b v7c v7d v7e v7f v7g
+    v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f
+    v15a v15b v15c v15d v15e v16a v16b v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f reasons
+    mentalhealth confict behavior relationship
+  /ORDER=ANALYSIS.
+Tuesday, January 4, 2022 7:09:01 PM PKT
+GET
+  FILE='C:\Users\Admin\Documents\Untitled1.sav'.
+DATASET NAME DataSet1 WINDOW=FRONT.
+FREQUENCIES VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v16a v16b
+    v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v16a v16b
+    v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /FORMAT=NOTABLE
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v16a v16b
+    v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /FORMAT=NOTABLE
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+CORRELATIONS
+  /VARIABLES=confict behavior
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=behavior reasons
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+FREQUENCIES VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v16a v16b
+    v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f
+  /FORMAT=NOTABLE
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+CORRELATIONS
+  /VARIABLES=behavior reasons
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=reasons behavior
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=reasons behavior
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=reasons behavior
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=reasons mentalhealth
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=reasons mentalhealth
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+COMPUTE hit=MEAN(v12 + v12a + v12b).
+EXECUTE.
+CORRELATIONS
+  /VARIABLES=mentalhealth hit
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=mentalhealth hit
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=mentalhealth confict
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=mentalhealth confict
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+COMPUTE cc=MEAN(v15a).
+EXECUTE.
+CORRELATIONS
+  /VARIABLES=mentalhealth cc
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=mentalhealth cc
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=behavior v12a
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=behavior v12a
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=behavior v12
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=behavior v12
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=behavior cc
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=behavior cc
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=cc mentalhealth
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=mentalhealth cc
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=mentalhealth cc
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=mentalhealth cc
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=cc behavior
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=cc behavior
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=cc mentalhealth
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=cc mentalhealth
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+CORRELATIONS
+  /VARIABLES=cc behavior
+  /PRINT=TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+NONPAR CORR
+  /VARIABLES=cc behavior
+  /PRINT=SPEARMAN TWOTAIL NOSIG
+  /MISSING=PAIRWISE.
+FREQUENCIES VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v16a v16b
+    v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f v1Gen v2Age v3familysize v4income v5Ftype
+    v6yrs v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e reasons
+    mentalhealth confict behavior relationship hit cc
+  /FORMAT=NOTABLE
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
+FREQUENCIES VARIABLES=v7a v7b v7c v7d v7e v7f v7g v7h v8a v8b v8c v8d v9a v9b v9c v9d v9e v16a v16b
+    v16c v16d v16e v16f v16g v17a v17b v17c v17d v17e v17f v1Gen v2Age v3familysize v4income v5Ftype
+    v6yrs v10 v11 v12 v12a v12b v13 v14a v14b v14c v14d v14e v14f v15a v15b v15c v15d v15e reasons
+    mentalhealth confict behavior relationship hit cc
+  /STATISTICS=STDDEV MEAN MEDIAN MODE
+  /ORDER=ANALYSIS.
